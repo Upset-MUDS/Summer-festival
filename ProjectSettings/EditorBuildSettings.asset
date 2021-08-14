@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/rikito.unity
     guid: 2aac11bb70d843a4ba4bd9aef11d9f67
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: d3112ea820e6ae849a800050f19218c6
+  - enabled: 1
+    path: Assets/Scenes/move_water.unity
+    guid: 4265f8301127c1f4383d43d24e298970
   m_configObjects: {}
