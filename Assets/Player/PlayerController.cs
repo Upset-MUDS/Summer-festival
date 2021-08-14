@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject cam;
     public float Xsensityvity = 3f, Ysensityvity = 3f;
     float X_Rotation,Y_Rotation;
+    float angle_calc = 0.0f;
 
     public float movementSpeed = 2f;
     public float shiftSpeed = 4f;
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() {
         //メインカメラを回転
         cam.transform.Rotate(-angle.y,0,0);
-        this.transform.Rotate(0,angle.x,0);
+        this.transform.Rotate(transform.up,angle.x);
 
         //移動の設定(speed)
         if(shift){
