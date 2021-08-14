@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -87,10 +88,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             cursorLock = false;
-        }
-        else if(Input.GetMouseButton(0))
-        {
-            cursorLock = true;
+            SceneManager.LoadScene("Title");
         }
 
         if (cursorLock)
