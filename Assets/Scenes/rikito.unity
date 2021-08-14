@@ -976,6 +976,7 @@ MonoBehaviour:
   staminamax: 100
   stamina: 100
   test: 0
+  before_y: 2
 --- !u!4 &1394475760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4850282969850390805, guid: a2d7eceb571cd9a4abfbb90e6779724a,
