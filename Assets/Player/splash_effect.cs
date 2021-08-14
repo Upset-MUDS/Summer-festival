@@ -9,7 +9,9 @@ public class splash_effect : MonoBehaviour
     // 水しぶきの設定
     void OnTriggerEnter(Collider t)
     {
-        Vector3 position = t.ClosestPointOnBounds(transform.position);
-        Instantiate(particles, new Vector3(position.x, position.y, position.z), Quaternion.identity);
+        if(t.gameObject.tag == "Water"){
+            Vector3 position = t.ClosestPointOnBounds(transform.position);
+            Instantiate(particles, new Vector3(position.x, position.y, position.z), Quaternion.identity);
+        }
     }
 }

@@ -105,6 +105,8 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.tag == "poi"){
             Debug.Log("hit");
             poitf = true;
+            Vector3 vec = this.transform.position;
+            this.transform.position = Vector3.MoveTowards(this.transform.position,vec +new Vector3(0,20,0),0.02f);
         }
     }
 }
