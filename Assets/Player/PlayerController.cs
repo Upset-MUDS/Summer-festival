@@ -9,15 +9,15 @@ public class PlayerController : MonoBehaviour
 
     //カメラ
     public GameObject cam;
-    public float Xsensityvity = 10f, Ysensityvity = 10f;
+    public float Xsensityvity = 3f, Ysensityvity = 3f;
     float X_Rotation,Y_Rotation;
 
     public float movementSpeed = 2f;
     public float shiftSpeed = 4f;
     public int staminamax = 100;
-    public int stamina = 100;
+    int stamina = 100;
     public float test = 0.0f;
-    public float before_y = 2.0f;
+    float before_y = 2.0f;
 
     float speed = 2f;
     float horizontalInput = 0.0f;
