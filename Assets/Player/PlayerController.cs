@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public GameObject cam;
     public float Xsensityvity = 3f, Ysensityvity = 3f;
     float X_Rotation,Y_Rotation;
-    float angle_calc = 0.0f;
 
     public float movementSpeed = 2f;
     public float shiftSpeed = 4f;
