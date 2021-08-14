@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/rikito.unity
+    guid: 2aac11bb70d843a4ba4bd9aef11d9f67
   m_configObjects: {}
