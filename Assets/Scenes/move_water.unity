@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: b4eb7cf24c972fd42b69f2d01c06a2f9,
+    type: 2}
   m_LightingSettings: {fileID: 1954439807}
 --- !u!196 &4
 NavMeshSettings:
@@ -10974,6 +10975,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: among us
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 209404f683e44421282318486c604ed6,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 209404f683e44421282318486c604ed6, type: 3}
 --- !u!4 &1070016969 stripped
@@ -11852,7 +11858,7 @@ LightingSettings:
   m_AlbedoBoost: 1
   m_IndirectOutputScale: 1
   m_UsingShadowmask: 1
-  m_BakeBackend: 1
+  m_BakeBackend: 2
   m_LightmapMaxSize: 1024
   m_BakeResolution: 40
   m_Padding: 2
