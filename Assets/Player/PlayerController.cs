@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public GameObject cam;
     public float Xsensityvity = 3f, Ysensityvity = 3f;
     float X_Rotation,Y_Rotation;
-    float angle_calc = 0.0f;
 
     public float movementSpeed = 2f;
     public float shiftSpeed = 4f;
@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     bool cursorLock = true;
     Vector3 angle;
+    public bool poitf = false;
 
     void Start()
     {
@@ -87,10 +88,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             cursorLock = false;
-        }
-        else if(Input.GetMouseButton(0))
-        {
-            cursorLock = true;
+            SceneManager.LoadScene("Title");
         }
 
         if (cursorLock)
@@ -100,6 +98,13 @@ public class PlayerController : MonoBehaviour
         else if(!cursorLock)
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.tag == "poi"){
+            Debug.Log("hit");
+            poitf = true;
         }
     }
 }
