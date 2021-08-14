@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     bool cursorLock = true;
     Vector3 angle;
+    public bool poitf = false;
 
     void Start()
     {
@@ -97,6 +98,13 @@ public class PlayerController : MonoBehaviour
         else if(!cursorLock)
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.tag == "poi"){
+            Debug.Log("hit");
+            poitf = true;
         }
     }
 }
