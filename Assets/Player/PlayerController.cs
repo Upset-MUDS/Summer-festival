@@ -35,6 +35,10 @@ public class PlayerController : MonoBehaviour
     string mode = "None";
     public bool poitf = false;
 
+
+    public GameObject End;
+
+
     void Start()
     {
         slider.value = 1;
@@ -56,7 +60,15 @@ public class PlayerController : MonoBehaviour
         //メインカメラを回転
         cam.transform.Rotate(-angle.y,0,0);
         this.transform.Rotate(transform.up,angle.x);
-        if(mode == "chatch"){
+
+        if(this.transform.position == new Vector3(0,0.5f,0)){ //下についた場合スタータスを元に戻す
+            mode = "None";
+        }
+        if(mode == "catch" && !poitf){ //逃れられた場合0,0.5f,0,に移動
+            this.transform.position = Vector3.MoveTowards(this.transform.position,new Vector3(0,0.5f,0),0.5f);
+            return;
+        }
+        if(mode == "catch"){ //捕まった場合ポイの位置に移動
             this.transform.position = new Vector3(poi.transform.position.x+4,poi.transform.position.y-6.5f,poi.transform.position.z-3);
             return;
         }
@@ -96,6 +108,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             cursorLock = false;
+            End.SetActive(false);
             SceneManager.LoadScene("Title");
         }
 
@@ -111,10 +124,13 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "poi"){
+            if(mode == "catch"){
+                return;
+            }
             Debug.Log("hit");
             poitf = true;
             Vector3 vec = this.transform.position;
-            mode = "chatch";
+            mode = "catch";
         }
     }
 }
