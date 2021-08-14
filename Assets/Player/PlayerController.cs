@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     //カメラ
     public GameObject cam;
+    public GameObject poi;
     public float Xsensityvity = 3f, Ysensityvity = 3f;
     float X_Rotation,Y_Rotation;
 
@@ -29,6 +30,9 @@ public class PlayerController : MonoBehaviour
 
     bool cursorLock = true;
     Vector3 angle;
+
+    //ポイ用
+    string mode = "None";
     public bool poitf = false;
 
     void Start()
@@ -48,10 +52,14 @@ public class PlayerController : MonoBehaviour
         angle = new Vector3(Input.GetAxis("Mouse X") * Xsensityvity,Input.GetAxis("Mouse Y") * Ysensityvity, 0);
     }
 
-    void FixedUpdate() {
+    void FixedUpdate(){
         //メインカメラを回転
         cam.transform.Rotate(-angle.y,0,0);
         this.transform.Rotate(transform.up,angle.x);
+        if(mode == "chatch"){
+            this.transform.position = new Vector3(poi.transform.position.x+4,poi.transform.position.y-6.5f,poi.transform.position.z-3);
+            return;
+        }
 
         //移動の設定(speed)
         if(shift){
@@ -106,7 +114,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("hit");
             poitf = true;
             Vector3 vec = this.transform.position;
-            this.transform.position = Vector3.MoveTowards(this.transform.position,vec +new Vector3(0,20,0),0.02f);
+            mode = "chatch";
         }
     }
 }

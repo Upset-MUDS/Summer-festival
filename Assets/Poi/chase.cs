@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class chase : MonoBehaviour {
 
     public Transform target;//追いかける対象-オブジェクトをインスペクタから登録できるように
+    public GameObject PushText;
     public float speed = 0.005f;//移動スピード
     private Vector3 vec;
     private int mode_num = 1;
@@ -18,6 +19,11 @@ public class chase : MonoBehaviour {
     }
 
     void Update () {
+        if(target.GetComponent<PlayerController>().poitf){
+            mode_num = 10;
+            transform.position = Vector3.MoveTowards(transform.position,vec +new Vector3(0,20,0),speed*10);
+            PushText.SetActive(true);
+        }
         if(mode_num == 1){ //索敵
             round_count += 1.0f;
             speed = 0.03f + 0.005f * round_count;
