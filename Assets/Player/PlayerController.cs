@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
-    float axisH = 0.0f;
-    bool jump = false;
+    // float axisH = 0.0f;
+    // bool jump = false;
     public float movementSpeed = 2f;
     void Start()
     {
