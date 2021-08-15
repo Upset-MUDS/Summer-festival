@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         if(mode == "catch"){ //捕まった場合ポイの位置に移動
-            this.transform.position = new Vector3(poi.transform.position.x+4,poi.transform.position.y-6.5f,poi.transform.position.z-3);
+            this.transform.position = new Vector3(poi.transform.position.x+4,poi.transform.position.y-5.7f,poi.transform.position.z-3);
             return;
         }
 

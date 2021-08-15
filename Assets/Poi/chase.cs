@@ -31,14 +31,17 @@ public class chase : MonoBehaviour {
     int catch_all_count = 0;
     public int poi_max = 5;
     public int poi_broken_count = 5;
+    Vector3 before_angle;
 
     void Start () {
         Application.targetFrameRate = 60;
+        before_angle =  this.transform.eulerAngles;
     }
 
     void Update () {
         if(target.GetComponent<PlayerController>().poitf && mode_num < 10){
             mode_num = 10;
+            this.transform.eulerAngles = before_angle;
         }
         if (mode_num == 10){
             transform.position = Vector3.MoveTowards(transform.position,vec +new Vector3(0,20,0),speed*10);
@@ -83,11 +86,12 @@ public class chase : MonoBehaviour {
             }
         }
         if(mode_num == 1){ //索敵
+            this.transform.eulerAngles += new Vector3(0,new System.Random().Next(-90,90),0);
             round_count += 1.0f;
             speed = 0.12f + 0.02f * round_count;
             Debug.Log("round:" + round_count +"speed"+speed);
             vec = target.position;
-            vec += new Vector3(-4,8,-4); //ぽいの中心がずれているため調節
+            vec += new Vector3(0,7,0); //ぽいの中心がずれているため調節
             mode_num = 2;
         }
         else if(mode_num == 2){ //移動
