@@ -5,6 +5,8 @@ using UnityEngine;
 public class MoveAround : MonoBehaviour {
 
     private Vector3 target;
+    private Vector3 latestPos;
+    private Vector3 diff;
 
     private float targetX = 0f;
     private float targetY = 1f;
@@ -29,8 +31,12 @@ public class MoveAround : MonoBehaviour {
             targetZ = Random.Range(-15f, 15f);
             target = new Vector3(targetX, targetY, targetZ);
         }else{
-            transform.LookAt(target);
+            diff = transform.position - latestPos;
+            latestPos = transform.position;
+            transform.rotation = Quaternion.LookRotation(diff);
+//            transform.LookAt(target);
             transform.position = Vector3.MoveTowards(transform.position, target, speed);
+
         }
     }
 }
