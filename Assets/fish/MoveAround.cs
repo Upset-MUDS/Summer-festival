@@ -10,8 +10,8 @@ public class MoveAround : MonoBehaviour {
     private float targetY = 1f;
     private float targetZ = 0f;
 
-    private float moveX = 0f;
-    private float moveZ = 0f;
+    // private float moveX = 0f;
+    // private float moveZ = 0f;
 
     [SerializeField] float speed=0.08f;
 

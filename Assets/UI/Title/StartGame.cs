@@ -8,6 +8,6 @@ public class StartGame : MonoBehaviour
 {
   /// ボタンをクリックした時の処理
   public void OnClick() {
-    SceneManager.LoadScene("move_water");
+    SceneManager.LoadScene("game_mode");
   }
 }
