@@ -29,7 +29,7 @@ public class chase : MonoBehaviour {
     int catch_all_count = 0;
 
     void Start () {
-
+        Application.targetFrameRate = 240;
     }
 
     void Update () {
