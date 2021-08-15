@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         cam.transform.Rotate(-angle.y,0,0);
         this.transform.Rotate(transform.up,angle.x);
 
-        if(this.transform.position == new Vector3(0,0.5f,0)){ //下についた場合スタータスを元に戻す
+        if(this.transform.position == new Vector3(0,0.5f,0)){ //ポイキャッチ後下についた場合スタータスを元に戻す
             mode = "None";
         }
         if(mode == "catch" && !poitf){ //逃れられた場合0,0.5f,0,に移動
@@ -122,6 +122,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //poiとのキャッチ判定
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "poi"){
             if(mode == "catch"){
