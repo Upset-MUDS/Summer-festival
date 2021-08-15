@@ -91,7 +91,7 @@ public class chase : MonoBehaviour {
             speed = 0.12f + 0.02f * round_count;
             Debug.Log("round:" + round_count +"speed"+speed);
             vec = target.position;
-            vec += new Vector3(0,7,0); //ぽいの中心がずれているため調節
+            vec += new Vector3(-1,7,-1); //ぽいの中心がずれているため調節
             mode_num = 2;
         }
         else if(mode_num == 2){ //移動
